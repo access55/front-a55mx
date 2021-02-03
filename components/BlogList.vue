@@ -22,7 +22,7 @@
 const TitleH3  = () => import('~/components/TitleH3.vue')
 const BlogItem = () => import('~/components/BlogItem.vue')
 export default {
-  name: 'BlockListImages',
+  name: 'BlogList',
   components: {
     TitleH3, BlogItem
   },
@@ -34,6 +34,11 @@ export default {
     posts: {
       type: Array,
       required: true
+    },
+    cssClass: {
+      type: String,
+      required: false,
+      default: ''
     }
   },
   data: () => ({

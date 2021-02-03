@@ -1,23 +1,22 @@
 <template>
   <div class="main-page">
-    <Hero :data="home.acf.hero" />
-    <NumberBlock :data="home.acf.fuel" :start="animationPaused" />
-    <Bureaucracy :data="home.acf.bureaucracy"/>
+    <Hero :data="credits.acf.hero" />
+    <NumberBlock :data="credits.acf.fuel" :start="animationPaused" />
     <div class="block-button">
       <div class="container">
         <ButtonBox :text="home.acf.button_lines" color="blue" />
       </div>
     </div>
-    <TestimonialsList :data="home.acf.testimonials" />
-    <ExternalNews :data="home.acf.others"/>
-    <BlockListImages :data="home.acf.support"/>
-    <BlockListImages :data="home.acf.allies" list-css-class="space-between" />
+    <BlockCardList :cards="credits.acf.cards" />
+    <Topics :data="credits.acf.request" />
     <div class="block-button">
       <div class="container">
-        <ButtonBox :text="home.acf.allies.button_ally" color="white" />
+        <LinkBox url="/blog" :text="credits.acf.request.button_request" color="blue" />
       </div>
     </div>
-    <WhiteBlock :data="home.acf.invest" />
+    <TestimonialsList :data="home.acf.testimonials" />
+    <Faq :data="credits.acf.faq" />
+
     <BlogList :posts="posts" :title="blog.title" />
     <div class="block-button">
       <div class="container">
@@ -28,30 +27,30 @@
 </template>
 
 <script>
+const Faq              = () => import('~/components/Faq.vue')
 const Hero             = () => import('~/components/Hero.vue')
+const Topics           = () => import('~/components/Topics.vue')
 const LinkBox          = () => import('~/components/LinkBox.vue')
 const BlogList         = () => import('~/components/BlogList.vue')
 const ButtonBox        = () => import('~/components/ButtonBox.vue')
-const WhiteBlock       = () => import('~/components/WhiteBlock.vue')
 const NumberBlock      = () => import('~/components/NumberBlock.vue')
-const Bureaucracy      = () => import('~/components/Bureaucracy.vue')
-const ExternalNews     = () => import('~/components/ExternalNews.vue')
-const BlockListImages  = () => import('~/components/BlockListImages.vue')
+const BlockCardList    = () => import('~/components/BlockCardList.vue')
 const TestimonialsList = () => import('~/components/TestimonialsList.vue')
 import mixins from '~/helpers/mixins'
 export default {
   layout: 'page',
   mixins: [mixins],
   components: {
-    Hero, NumberBlock, Bureaucracy, TestimonialsList, ExternalNews, BlockListImages, WhiteBlock, LinkBox, BlogList
+    Hero, NumberBlock, TestimonialsList, LinkBox, BlogList, ButtonBox, BlockCardList, Topics, Faq
   },
   async asyncData ({ store, $config: { baseAPI } }) {
     await store.dispatch('page/loadPage', baseAPI)
+    await store.dispatch('credits/loadPage', baseAPI)
   },
   head() {
-    if(this.home) {
+    if(this.credits) {
       const metaArray = [];
-      this.home.yoast_meta.map(ele => {
+      this.credits.yoast_meta.map(ele => {
         metaArray.push({
           hid: ele.name ? ele.name : ele.property,
           name: ele.name ? ele.name : ele.property,
@@ -67,7 +66,8 @@ export default {
     home () { return this.$store.state.page.home },
     blog () { return this.$store.state.page.blog },
     posts () { return this.$store.state.page.posts },
-    options () { return this.$store.state.page.options }
+    options () { return this.$store.state.page.options },
+    credits () { return this.$store.state.credits.credits },
   }
 }
 </script>

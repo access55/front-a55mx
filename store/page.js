@@ -82,10 +82,6 @@ export const state = () => ({
         title: '',
         text: '',
         button_know: ''
-      },
-      impulse: {
-        title: '',
-        button_know: ''
       }
     }
   },

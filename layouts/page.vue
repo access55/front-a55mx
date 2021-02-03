@@ -74,4 +74,12 @@ main
     opacity 1
     transform translate3d(0, 0, 0)
     transitions(.35s)
+.block-button
+  margin 60px 0
+  .container
+    max-width 1200px
+    width calc(100% - 64px)
+    margin 0 auto
+    display flex
+    justify-content center
 </style>
