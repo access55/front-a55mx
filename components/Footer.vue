@@ -135,6 +135,19 @@ export default {
     font-size 14px
     line-height 250%
     display inline-block
+    position relative
+    &:hover:after
+      width 100%
+      transitions(.2s)
+    &:after
+      content ''
+      width 0
+      background #fff
+      position absolute
+      bottom 2px
+      left 0
+      height 1px
+      transitions(.2s)
   p
     font-size 12px
     font-weight 300
