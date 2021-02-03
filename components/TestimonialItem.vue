@@ -60,4 +60,35 @@ export default {
     color #fff
     font-size 14px
     line-height 150%
+@media all and (max-width: 900px)
+  .testimonial-item
+    padding 50px
+  .testimonial-item-image
+    width 140px
+    img
+      height 140px
+  .testimonial-item-info
+    width calc(100% - 200px)
+    p
+      font-size: clamp(16px, calc(1rem + (24 - 16) * ((100vw - 320px) / (900 - 320))), 24px)
+@media all and (max-width: 700px)
+  .testimonial-item
+    padding 35px
+@media all and (max-width: 600px)
+  .testimonial-item
+    flex-wrap wrap
+  .testimonial-item-info
+    width 100%
+  .testimonial-item-image
+    width 100%
+    margin-top 40px
+    flex-wrap wrap
+    img
+      width 140px
+    p
+      width 100%
+  .testimonial-item-info 
+    img
+      width 49px
+      height auto
 </style>

@@ -46,7 +46,7 @@ export default {
   &.hero-image // é uma exceção
     position absolute
     bottom 50px
-    right 0
+    right -80px
     z-index 1
   &.force-width
     img
@@ -56,4 +56,27 @@ export default {
     object-fit cover
     height auto
     max-width 100%
+@media all and (max-width: 1300px)
+  .image-box
+    &.hero-image
+      right -10%
+      max-width 80%
+@media all and (max-width: 1000px)
+  .image-box
+    &.hero-image
+      right auto
+      bottom auto
+      position relative
+      order 1
+      max-width 78%
+      margin 75px auto 50px
+@media all and (max-width: 500px)
+  .image-box
+    &.hero-image
+      right auto
+      bottom auto
+      position relative
+      order 1
+      max-width 95%
+      margin 75px auto 50px
 </style>

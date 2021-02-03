@@ -3,7 +3,7 @@
     <Hero :data="home.acf.hero" />
     <NumberBlock :data="home.acf.fuel" :start="animationPaused" />
     <Bureaucracy :data="home.acf.bureaucracy"/>
-    <div class="block-button">
+    <div class="block-button desktop">
       <div class="container">
         <ButtonBox :text="home.acf.button_lines" color="blue" />
       </div>
@@ -11,7 +11,12 @@
     <TestimonialsList :data="home.acf.testimonials" />
     <ExternalNews :data="home.acf.others"/>
     <BlockListImages :data="home.acf.support"/>
-    <BlockListImages :data="home.acf.allies" list-css-class="space-between" />
+    <BlockListImages 
+      :data="home.acf.allies" 
+      list-css-class="space-between"
+      :has-slider="true"
+      slider-class="allies"
+       />
     <div class="block-button">
       <div class="container">
         <ButtonBox :text="home.acf.allies.button_ally" color="white" />

@@ -57,4 +57,12 @@ export default {
     flex-wrap wrap
   .testimonial-slider
     width 100%
+@media all and (max-width: 900px)
+  .testimonials
+    .container
+      width calc(100% - 32px)
+@media all and (max-width: 600px)
+  .testimonials
+    .container
+      width calc(100% - 20px)
 </style>

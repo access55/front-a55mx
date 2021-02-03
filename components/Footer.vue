@@ -2,14 +2,19 @@
   <footer class="main-footer">
     <div class="container">
       <div class="footer-address">
-        <img src="~assets/img/logo-footer.svg" alt="a55" width="96" height="41">
+        <img 
+          src="~assets/img/logo-footer.svg" 
+          alt="a55" 
+          width="96" 
+          height="41"
+          class="desktop footer-image">
         <SocialNetworks 
           :twitter="options.twitter"
           :linkedin="options.linkedin"
           :blogger="options.blogger"
         />
-        <p v-html="options.address"></p>
-        <div class="footer-extra-links">
+        <p v-html="options.address" class="desktop footer-address-text"></p>
+        <div class="footer-extra-links desktop">
           <nuxt-link to="#">Aviso de privacidad</nuxt-link>
           <nuxt-link to="#">Termos y condiciones</nuxt-link>
         </div>
@@ -61,9 +66,22 @@
             <p v-html="options.attendance"></p>
           </div>
         </div>
-        <div class="footer-sitemap-credits">
-          <div class="footer-sitemap-credits-text" v-html="options.credits"></div>
+        <div class="footer-extra-links mobile">
+          <nuxt-link to="#">Aviso de privacidad</nuxt-link>
+          <nuxt-link to="#">Termos y condiciones</nuxt-link>
         </div>
+        <div class="footer-mobile-box">
+          <img 
+            src="~assets/img/logo-footer.svg" 
+            alt="a55" 
+            width="96" 
+            height="41"
+            class="mobile footer-image">
+          <p v-html="options.address" class="mobile footer-address-text"></p>
+          <div class="footer-sitemap-credits">
+            <div class="footer-sitemap-credits-text" v-html="options.credits"></div>
+          </div>
+       </div>
       </div>
     </div>
   </footer>
@@ -97,25 +115,45 @@ export default {
     align-items flex-start
 .footer-address
   width 185px
-  img
-    margin-bottom 40px
-  p
-    margin-top 50px
-    font-weight 300
-    line-height 150%
-    color #fff
-    font-size 12px
+.footer-image
+  margin-bottom 40px
+  &.mobile
+    display none
+.footer-address-text
+  margin-top 50px
+  font-weight 300
+  line-height 150%
+  color #fff
+  font-size 12px
+  &.mobile
+    display none
 .footer-sitemap
   width calc(100% - 310px)
 .footer-extra-links
   margin-top 100px
+  &.mobile
+    display none
   a
     font-weight 300
     text-decoration none
     color #fff
     font-size 12px
     display inline-block
+    line-height 250%
     margin-bottom 30px
+    position relative
+    &:hover:after
+      width 100%
+      transitions(.2s)
+    &:after
+      content ''
+      width 0
+      background #fff
+      position absolute
+      bottom 0
+      left 0
+      height 1px
+      transitions(.2s)
 .footer-sitemap-categories
   display flex
   justify-content space-between
@@ -160,4 +198,63 @@ export default {
   font-size 12px
   font-weight 300
   line-height 200%
+@media all and (max-width: 1200px)
+  .main-footer 
+    .container
+      width calc(100% - 32px)
+  .footer-sitemap
+    width calc(100% - 250px)
+@media all and (max-width: 1000px)
+  .footer-address
+    width 100%
+    p
+      margin-top 30px
+    img
+      display none
+  .footer-sitemap
+    width 100%
+    margin-top 30px
+  .footer-address-text
+    &.mobile
+      display block
+    &.desktop
+      display none
+  .footer-image
+    &.mobile
+      display block
+    &.desktop
+      display none
+  .footer-extra-links
+    margin 20px 0
+    &.desktop
+      display none
+    &.mobile
+      display block
+    a
+      margin-right 30px
+      margin-bottom 0
+  .footer-sitemap-categories
+    margin-bottom 50px
+  .footer-mobile-box
+    margin-top 50px
+    padding-top 50px
+    border-top 1px solid #fff
+  .footer-sitemap-credits-text
+    border none
+@media all and (max-width: 850px)
+  .footer-sitemap-categories
+    flex-wrap wrap
+  .footer-sitemaps-cats
+    width 50%
+    margin-bottom 30px
+@media all and (max-width: 450px)
+  .footer-sitemaps-cats
+    width 100%
+  .footer-extra-links 
+    display block
+    a
+      margin 0 0 20px 20px
+      width auto
+      &:first-child
+        margin-left 0
 </style>

@@ -46,7 +46,7 @@ export default {
   background #fff
   padding 20px
   width 100%
-  margin-bottom 20px
+  margin-bottom 25px
   display block
   border-radius 16px
   box-shadow: 0px 16px 24px rgba(5, 152, 255, 0.1), 0px 2px 6px rgba(5, 152, 255, 0.08), 0px 0px 1px rgba(5, 152, 255, 0.08)
@@ -81,4 +81,14 @@ export default {
       width 57px
       height 57px
       border-radius 100%
+@media all and (max-width: 1250px)
+  .blog-content
+    p 
+      font-size: clamp(16px, calc(1rem + (20 - 16) * ((100vw - 340px) / (1250 - 340))), 20px)
+
+@media all and (max-width: 600px)
+  .blog-author
+    .blog-author-info
+      p
+        font-size: clamp(13px, calc(0.8125rem + (16 - 13) * ((100vw - 340px) / (600 - 340))), 16px)
 </style>

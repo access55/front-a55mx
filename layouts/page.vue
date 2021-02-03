@@ -1,6 +1,6 @@
 <template>
   <div class="main-layout">
-    <Header />
+    <Header :status-menu="statusMenu" @close="closeMenu" />
     <main>
       <Nuxt />
     </main>
@@ -11,19 +11,28 @@
       :result-title="newsletter.success.title"
     />
     <Footer />
+    <MenuOpen @action="openMenu" />
   </div>
 </template>
 <script>
 const Header     = () => import('~/components/Header.vue')
 const Footer     = () => import('~/components/Footer.vue')
+const MenuOpen   = () => import('~/components/MenuOpen.vue')
 const Newsletter = () => import('~/components/Newsletter.vue')
 export default {
   name: 'page',
   components: {
-    Header, Newsletter, Footer
+    Header, Newsletter, Footer, MenuOpen
   },
   computed: {
     newsletter () { return this.$store.state.page.newsletter }
+  },
+  data: () => ({
+    statusMenu: false
+  }),
+  methods: {
+    openMenu () { this.statusMenu = !this.statusMenu },
+    closeMenu () { this.statusMenu = false }
   }
 }
 </script>
@@ -82,4 +91,8 @@ main
     margin 0 auto
     display flex
     justify-content center
+@media all and (max-width: 600px)
+  .block-button
+    &.desktop
+      display none
 </style>

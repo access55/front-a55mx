@@ -21,4 +21,7 @@ export default {
   color #00417F
   text-align center
   margin 0 0 30px
+@media all and (max-width: 1250px)
+  .title-h3
+    font-size: clamp(20px, calc(1.25rem + (32 - 20) * ((100vw - 320px) / (1250 - 320))), 32px)
 </style>

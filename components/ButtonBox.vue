@@ -67,4 +67,8 @@ export default{
       
   &:hover
     transitions(.2s)
+@media all and (max-width: 600px)
+  .button
+    padding 0 12px
+    font-size 12px
 </style>

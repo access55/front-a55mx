@@ -1,8 +1,8 @@
 <template>
-  <header class="main-header" :class="{'active': scroll > 0, 'hide-menu': hideMenu && scroll > 250 && !openMenu}">
+  <header class="main-header" :class="{'active': scroll > 0, 'hide-menu': hideMenu && scroll > 250 && !statusMenu}">
     <div class="header-container">
       <Logo :scroll="scroll" />
-      <Navigation :status-menu="openMenu" @close-menu="closeMenu" />
+      <Navigation :status-menu="statusMenu" @close="closeMenu" />
     </div>
   </header>
 </template>
@@ -13,8 +13,13 @@ export default {
   components: {
     Logo, Navigation
   },
+  props: {
+    statusMenu: {
+      type: Boolean,
+      required: true
+    }
+  },
   data: () => ({
-    openMenu: false,
     scroll: 0,
     lastScroll: 0,
     hideMenu: false
@@ -39,7 +44,7 @@ export default {
       this.openMenu = !this.openMenu
     },
     closeMenu () {
-      this.openMenu = false
+      this.$emit('close')
     }
   }
 }
@@ -68,7 +73,11 @@ header
   margin 0 auto
   height 100%
   align-items center
-@media all and (max-width: 600px)
+@media all and (max-width: 1000px)
   .header-container
     width calc(100% - 32px)
+@media all and (max-width: 750px)
+  .header-container
+    width calc(100% - 20px)
+    justify-content center
 </style>

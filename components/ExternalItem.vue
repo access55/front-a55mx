@@ -88,5 +88,10 @@ export default {
     font-size 14px
     font-weight bold
     text-decoration none
-    
+@media all and (max-width: 600px)
+  .external-item
+    padding 0
+  .external-item-content
+    h4
+      font-size: clamp(16px, calc(1rem + (20 - 16) * ((100vw - 340px) / (600 - 340))), 20px)
 </style>

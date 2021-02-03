@@ -37,6 +37,20 @@ export default {
       pagination: {
         el: '.external-pagination',
         clickable: true
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 'auto',
+          centeredSlides: true
+        },
+        600: {
+          slidesPerView: 2,
+          centeredSlides: false
+        },
+        1100: {
+          slidesPerView: 3,
+          centeredSlides: false
+        }
       }
     },
   })
@@ -58,4 +72,10 @@ export default {
   .external-slider
     width calc(100% + 16px)
     margin-left 0
+@media all and (max-width: 600px)
+  .external
+    .container
+      width calc(100% - 20px)
+    .swiper-slide
+      width calc(100vw - 120px)   
 </style>

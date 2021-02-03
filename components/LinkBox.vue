@@ -34,7 +34,6 @@ export default{
 <style lang="stylus">
 @import '~assets/css/functions.styl'
 .link-area
-  position relative  
   a
     display inline-flex
     outline none
@@ -60,4 +59,15 @@ export default{
         color #0096FF
     &:hover
       transitions(.2s)
+@media all and (max-width: 750px)
+  .link-area
+    a.mobile-navigation
+      bottom 100px
+      left 50%
+      transform translateX(-50%)
+      position absolute
+@media all and (max-width: 600px)
+  .link-area
+    a
+      font-size 12px
 </style>

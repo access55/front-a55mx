@@ -40,4 +40,13 @@ export default {
     line-height 150%
     margin-bottom 40px
     color #606266
+@media all and (max-width: 1250px)
+  .white-block
+    p
+      font-size: clamp(16px, calc(1rem + (20 - 16) * ((100vw - 340px) / (1250 - 340))), 20px)
+@media all and (max-width: 600px)
+  .white-block
+    border-radius 16px
+    padding 20px
+    width calc(100% - 24px)
 </style>

@@ -1,18 +1,22 @@
 <template>
-  <nav class="main-navigation">
+  <nav class="main-navigation" :class="{'active': statusMenu}">
+    <Logo css-class="top mobile" />
     <ul>
-      <li>
-        <nuxt-link to="/creditos-empresariales">Créditos Empresariales</nuxt-link>
+      <li class="mobile">
+        <nuxt-link to="/" @click.native="closeMenu">Home</nuxt-link>
       </li>
       <li>
-        <nuxt-link to="/blog">Blog</nuxt-link>
+        <nuxt-link to="/creditos-empresariales" @click.native="closeMenu">Créditos Empresariales</nuxt-link>
+      </li>
+      <li>
+        <nuxt-link to="/blog" @click.native="closeMenu">Blog</nuxt-link>
       </li>
     </ul>
     <LinkBox
       :external="true"
       url="https://plataforma.a55.tech/entrar"
       :text="options.login_text"
-      color="blue" />
+      color="blue mobile-navigation" />
   </nav>
 </template>
 
@@ -32,6 +36,11 @@ export default {
   },
   computed: {
     options () { return this.$store.state.page.options },
+  },
+  methods: {
+    closeMenu () {
+      this.$emit('close')
+    }
   }
 }
 </script>
@@ -51,9 +60,47 @@ export default {
     display flex
     list-style-type none
     justify-content space-between
+    li.mobile
+      display none
     a
       font-size 16px
       font-weight 400
       color #fff
       text-decoration none
+@media all and (max-width: 750px)
+  .main-navigation
+    position fixed
+    z-index 100
+    opacity 0
+    overflow hidden
+    visibility hidden
+    height 0
+    align-content flex-start
+    align-items flex-start
+    top 0
+    background #00154B
+    width 100%
+    transition all .3s cubic-bezier(0.165, 0.84, 0.44, 1)
+    will-change opacity, height
+    &.active
+      height 100vh
+      visibility visible
+      opacity 1
+      transition all .3s cubic-bezier(0.165, 0.84, 0.44, 1)
+    ul 
+      width 100%
+      display block
+      text-align center
+      margin-top 200px
+      li
+        display block
+        margin 30px 0
+      li.mobile
+        display block
+      a
+        font-size 20px
+        font-weight bold
+        &.nuxt-link-exact-active
+          color #33AAFF
+      
 </style>

@@ -2,10 +2,7 @@
   <div class="blog-area" :class="cssClass">
     <div class="container">
       <TitleH3 :text="title" />
-      <div class="blog-list desktop">
-        <BlogItem :data="item" v-for="(item, index) in posts" :key="index" />
-      </div>
-      <div class="blog-slider mobile">
+      <div class="blog-slider">
         <swiper
         ref="blogSlider" 
         :options="swiperBlog" >
@@ -13,7 +10,6 @@
             <BlogItem :data="item"  />
           </swiper-slide>
         </swiper>
-        <div class="swiper-pagination blog-pagination"></div>
       </div>
     </div>
   </div>
@@ -49,6 +45,24 @@ export default {
       pagination: {
         el: '.blog-pagination',
         clickable: true
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 'auto',
+          centeredSlides: true
+        },
+        600: {
+          slidesPerView: 2,
+          centeredSlides: false
+        },
+        1000: {
+          slidesPerView: 3,
+          centeredSlides: false
+        },
+        1200: {
+          slidesPerView: 4,
+          centeredSlides: false
+        }
       }
     },
   })
@@ -78,8 +92,17 @@ export default {
     font-size 20px
     color #606266
     line-height 150%
-.blog-list
-  display grid
-  grid-template-columns 1fr 1fr 1fr 1fr
-  grid-gap 16px
+@media all and (max-width: 1250px)
+  .blog-area
+    .container
+      max-width 1200px
+      width calc(100% - 32px)
+@media all and (max-width: 600px)
+  .blog-area
+    .container
+      max-width 1200px
+      width calc(100% - 20px)
+    .blog-slider
+      .swiper-slide
+        width calc(100vw - 120px)   
 </style>

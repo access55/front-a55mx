@@ -7,12 +7,16 @@
       <span class="number-after" v-html="data.numbers.after"></span></h3>
       <p>{{ data.text }}</p>
       <div class="companies-list">
-        <img 
-          :key="index"
-          v-for="(item, index) in data.companies" 
-          :src="item.image.url" 
-          :alt="item.image.description.length > 0 ? item.image.description : item.image.title" 
-        />
+        <ul>
+          <li :key="index" v-for="(item, index) in data.companies" >
+            <img 
+            :src="item.image.url" 
+            :alt="item.image.description.length > 0 ? item.image.description : item.image.title" 
+            :width="item.image.width"
+            :height="item.image.height"
+          />
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -38,7 +42,7 @@ export default {
     start (value) {
       if(value === true) {
         let countUp = new CountUp('numbers-number', parseInt(this.data.numbers.number, 10), {
-          decimalPlaces: 2,
+          decimalPlaces: 0,
           separator: ".",
           decimal: ",",
           prefix: "$",
@@ -65,7 +69,7 @@ export default {
     margin-bottom 40px
     color #00417F
     font-size 50px
-    line-height 75px
+    line-height 150%
     font-weight 700
   h3
     margin-bottom 40px
@@ -82,12 +86,54 @@ export default {
   font-size 40px
 .companies-list
   max-width 1040px
+  width calc(100% - 32px)
   margin 40px auto 0
-  display flex
-  justify-content space-between
-  align-items center
+  ul
+    padding 0
+    margin 0
+    list-style-type none
+    width 100%
+    display flex
+    justify-content space-between
+    align-items center
+    li
+      margin-left 30px
+      &:first-child
+        margin-left 0
+    img
+      max-width 100%
+      display block
+      height auto
+  
 @media all and (max-width: 1250px)
   .numbers
     .container
       width calc(100% - 64px)
+    h2
+      font-size: clamp(22px, calc(1.375rem + (50 - 22) * ((100vw - 320px) / (1250 - 320))), 50px)
+    h3
+      font-size: clamp(16px, calc(1rem + (24 - 16) * ((100vw - 320px) / (1250 - 320))), 24px)
+      .big
+        font-size: clamp(28px, calc(2rem + (40 - 32) * ((100vw - 320px) / (1250 - 320))), 40px)
+    p
+      font-size: clamp(18px, calc(1.125rem + (24 - 18) * ((100vw - 320px) / (1250 - 320))), 24px)
+@media all and (max-width: 1100px)
+  .numbers
+    .container
+      width calc(100% - 32px)
+  .companies-list
+    flex-flow: row nowrap
+    img
+      width auto
+      display block
+@media all and (max-width: 600px)
+  .numbers
+    .container
+      width calc(100% - 20px)
+  .numbers-number
+    margin 10px 0
+    display block
+  .companies-list
+    ul li
+      margin-left 20px
 </style>
