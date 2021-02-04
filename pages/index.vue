@@ -1,5 +1,6 @@
 <template>
   <div class="main-page">
+    <Loading :loading="loading" />
     <Hero :data="home.acf.hero" />
     <NumberBlock :data="home.acf.fuel" :start="animationPaused" />
     <Bureaucracy :data="home.acf.bureaucracy"/>
@@ -35,6 +36,7 @@
 <script>
 const Hero             = () => import('~/components/Hero.vue')
 const LinkBox          = () => import('~/components/LinkBox.vue')
+const Loading          = () => import('~/components/Loading.vue')
 const BlogList         = () => import('~/components/BlogList.vue')
 const ButtonBox        = () => import('~/components/ButtonBox.vue')
 const WhiteBlock       = () => import('~/components/WhiteBlock.vue')
@@ -48,7 +50,7 @@ export default {
   layout: 'page',
   mixins: [mixins],
   components: {
-    Hero, NumberBlock, Bureaucracy, TestimonialsList, ExternalNews, BlockListImages, WhiteBlock, LinkBox, BlogList
+    Hero, NumberBlock, Bureaucracy, TestimonialsList, ExternalNews, BlockListImages, WhiteBlock, LinkBox, BlogList, Loading
   },
   async asyncData ({ store, $config: { baseAPI } }) {
     await store.dispatch('page/loadPage', baseAPI)
@@ -72,7 +74,8 @@ export default {
     home () { return this.$store.state.page.home },
     blog () { return this.$store.state.page.blog },
     posts () { return this.$store.state.page.posts },
-    options () { return this.$store.state.page.options }
+    options () { return this.$store.state.page.options },
+    loading () { return this.$store.state.page.loaded }
   }
 }
 </script>

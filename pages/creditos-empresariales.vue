@@ -1,5 +1,6 @@
 <template>
   <div class="main-page">
+    <Loading :loading="loading" />
     <Hero :data="credits.acf.hero" />
     <NumberBlock :data="credits.acf.fuel" :start="animationPaused" />
     <div class="block-button">
@@ -31,6 +32,7 @@ const Faq              = () => import('~/components/Faq.vue')
 const Hero             = () => import('~/components/Hero.vue')
 const Topics           = () => import('~/components/Topics.vue')
 const LinkBox          = () => import('~/components/LinkBox.vue')
+const Loading          = () => import('~/components/Loading.vue')
 const BlogList         = () => import('~/components/BlogList.vue')
 const ButtonBox        = () => import('~/components/ButtonBox.vue')
 const NumberBlock      = () => import('~/components/NumberBlock.vue')
@@ -41,7 +43,7 @@ export default {
   layout: 'page',
   mixins: [mixins],
   components: {
-    Hero, NumberBlock, TestimonialsList, LinkBox, BlogList, ButtonBox, BlockCardList, Topics, Faq
+    Hero, NumberBlock, TestimonialsList, LinkBox, BlogList, ButtonBox, BlockCardList, Topics, Faq, Loading
   },
   async asyncData ({ store, $config: { baseAPI } }) {
     await store.dispatch('page/loadPage', baseAPI)
@@ -68,6 +70,7 @@ export default {
     posts () { return this.$store.state.page.posts },
     options () { return this.$store.state.page.options },
     credits () { return this.$store.state.credits.credits },
+    loading () { return this.$store.state.credits.loaded }
   }
 }
 </script>

@@ -83,6 +83,23 @@ export default {
       font-weight 400
       color #fff
       text-decoration none
+      position relative
+      transitions(.2s)
+      &.nuxt-link-exact-active:after
+        width 100%
+        transitions(.2s)
+      &:hover:after
+        width 100%
+        transitions(.2s)
+      &:after
+        content ''
+        width 0
+        background #fff
+        position absolute
+        bottom -3px
+        left 0
+        height 1px
+        transitions(.2s)
 @media all and (max-width: 750px)
   .close
     display block
