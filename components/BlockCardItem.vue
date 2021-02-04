@@ -58,4 +58,22 @@ export default {
     margin 0 auto
     height auto
     display block
+@media all and (max-width: 1250px)
+  .block-card-item
+    h3
+      font-size: clamp(24px, calc(1.5rem + (40 - 24) * ((100vw - 340px) / (1250 - 340))), 40px)
+    p
+      font-size: clamp(14px, calc(0.875rem + (24 - 14) * ((100vw - 340px) / (1250 - 340))), 24px)
+@media all and (max-width: 900px)
+  .block-card-item
+    width 100%
+    height auto
+    min-height auto
+    margin 0 0 5px
+@media all and (max-width: 500px)
+  .block-card-image
+    img
+      display block
+      height auto
+      max-width 100%
 </style>

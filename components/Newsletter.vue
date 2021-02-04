@@ -8,17 +8,18 @@
             src="~assets/img/loading.svg" 
             alt="carregando" 
             loading="lazy" 
-            width="32" 
-            height="32">
+            width="48" 
+            height="48">
         </div>
         <div class="newsletter-result" :class="{'active': result.status}">
           <TitleH4 :text="resultTitle" />
           <p>{{resultText}}</p>
           <div class="newsletter-result-action">
-            <ButtonBox 
-              color="blue" 
-              text="Cerrar"
-              @action="result.status = false; loading = false" />
+            <button 
+              class="button blue" 
+              @click.prevent="result.status = false; loading = false">
+              Cerrar
+            </button>
           </div>
         </div>
         <div class="newsletter-form">
@@ -31,12 +32,11 @@
                 <input 
                   type="text"
                   id="newsletter-firstname"
+                  :class="errorClass($v.form.firstname)"
                   v-model.trim="$v.form.firstname.$model"
-                  :class="{'error': error.firstname, 'valid': valid.firstname }"
-                  :readonly="valid.firstname && submiting"
                />
                <ErrorBox 
-                  :status="error.firstname" 
+                  :status="$v.form.firstname.$error" 
                   text="Necesitamos un nombre valido" 
                   :margin-bottom="16"
                />
@@ -48,21 +48,17 @@
                 <input 
                   type="email"
                   id="newsletter-email"
+                  :class="errorClass($v.form.email)"
                   v-model.trim="$v.form.email.$model"
-                  :class="{'error': error.email, 'valid': valid.email }"
-                  :readonly="valid.email && submiting"
                />
                <ErrorBox 
-                  :status="error.email" 
+                  :status="$v.form.email.$error" 
                   text="Necesitamos un email valido" 
                   :margin-bottom="16"
                />
               </div>
-              <div class="field">
-                <ButtonBox 
-                  color="blue" 
-                  :text="buttonText"
-                  type="submit" />
+              <div class="field field-submit">
+                <button class="blue button" type="submit">{{buttonText}}</button>
               </div>
             </div>
            </form>
@@ -76,11 +72,10 @@ import { required, email } from 'vuelidate/lib/validators'
 const TitleH3   = () => import('~/components/TitleH3.vue')
 const TitleH4   = () => import('~/components/TitleH4.vue')
 const ErrorBox  = () => import('~/components/ErrorBox.vue')
-const ButtonBox = () => import('~/components/ButtonBox.vue')
 export default {
   name: 'Newsletter',
   components: {
-    TitleH3, TitleH4, ButtonBox
+    TitleH3, TitleH4, ErrorBox
   },
   props: {
     title: {
@@ -122,36 +117,38 @@ export default {
     loading: false
   }),
   methods: {
+    errorClass (validation) {
+      return {
+        error: validation.$error,
+        dirty: validation.$dirty
+      }
+    },
     async send () {
       this.$v.$touch()
-      if( this.$v.$invalid ) {
-        this.error.email = true
-        this.submiting = false
-        if (this.timer) clearTimeout(this.timer) // limpa o timer de novo
-        this.timer = setTimeout(() => this.error.email = false, 3000)
-        return false
-      }
       if ( !this.$v.$invalid ) {
-        this.error.email = false
-        this.valid.email = true
-        this.error.firsname = false
-        this.valid.firsname = true
-        this.submiting = true
-        setTimeout(() => this.loading = true, 1000)
-        // await fetch(``, { mode: 'cors' })
-        //   .then(response => response.json())
-        //   .then(response => console.log(response))
-        //   .catch(error => this.showResult(error))
+        this.loading = true
+        this.form.list = [325]
+        await fetch(`https://mql-api.a55.tech/subscribe-lead`, {
+          method: 'POST',
+          mode: 'cors',
+          body: JSON.stringify(this.form)
+        })
+          .then(response => response.json())
+          .then(response => {
+            console.log(response)
+            this.showResult(response)
+            this.loading = false
+          })
+          .catch(error => this.showResult(error))
       }
     },
     showResult (resource) {
       this.loading = false
       this.result.status = true
       this.result.text = resource.text
-      this.error.email = false
       this.result.type = resource.type
       this.form.email = ''
-      this.valid.email = false
+      this.form.firstname = ''
       this.$v.$reset()
     }
   },
@@ -221,14 +218,15 @@ export default {
   margin 0 auto
   width 100%
 .newsletter-result, .newsletter-loading
-  background #351921
+  background darken(#f2f6fc, 4%)
   filler()
+  height calc(100% + 40px)
   showActive()
   z-index 100
 .field
   width 100%
   clear both
-  margin-bottom 16px
+  margin-bottom 25px
   button
     margin 0 auto
   label
@@ -250,9 +248,9 @@ export default {
     box-shadow: 0px 16px 24px rgba(5, 152, 255, 0.1), 0px 2px 6px rgba(5, 152, 255, 0.08), 0px 0px 1px rgba(5, 152, 255, 0.08);
     outline none
     placeholderColor(#606266, #606266)
-    transitions(.2s, border-bottom)
+    transitions(.2s)
     &:focus
-      border-color #fff
+      border-color rgba(5,152,255,0.66)
       transitions(.2s)
     &.error
       transitions(.2s)
@@ -265,30 +263,35 @@ export default {
       &:focus
         border-color #A7C478
 .newsletter-loading
-  height 200px
-  top -30px
   img
     centerPerfect()
-    width 40px
-    height 40px
+    width 48px
+    height 48px
 .newsletter-result
   display flex
   z-index 101
   align-items center
-  justify-content flex-start
+  justify-content center
   align-content center
   flex-wrap wrap
+  text-align center
+  .title-h4
+    margin-bottom 20px
+    text-align center
   p
-    color #fff
+    color #606266
     margin 0
     width 100%
-    font-size 18px
-    padding-left 50px
+    font-size 16px
+    margin 20px 0
   .newsletter-result-image
     width 100%
     margin 77px 0
   .newsletter-result-action
     width 100%
+    display flex
+    justify-content center
+    margin-top 20px
 .modal-close
   position absolute
   top 50%

@@ -76,6 +76,4 @@ export default {
   .external
     .container
       width calc(100% - 20px)
-    .swiper-slide
-      width calc(100vw - 120px)   
 </style>

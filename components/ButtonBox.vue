@@ -1,8 +1,9 @@
 <template>
   <button 
     class="button"
+    :type="type"
     :class="[cssClass, color]"
-    @click.prevent="action">{{ text }}</button>
+    @click.prevent="type === 'submit' ? false : action">{{ text }}</button>
 </template>
 <script>
 export default{
@@ -22,6 +23,11 @@ export default{
       type: String,
       required: false,
       default: ''
+    },
+    type: {
+      type: String,
+      required: false,
+      default: 'button'
     },
   },
   methods: {

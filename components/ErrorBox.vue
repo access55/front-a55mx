@@ -32,11 +32,14 @@
 <style lang="stylus">
 .error-box
   color #fff
-  font-size 14px
-  line-height 22px
+  font-size 12px
+  font-weight bold
   opacity 0
   transform translateY(10px)
   transitions()
+  color #ff3244
+  margin-top 5px
+  text-align right
   visibility hidden
   margin-bottom var(--margin)
   &.active

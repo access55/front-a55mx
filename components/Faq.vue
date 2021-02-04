@@ -97,6 +97,7 @@ export default {
   display flex
   justify-content flex-start
   align-items center
+  text-align left
   padding 16px 48px 16px 24px
   position relative
   cursor pointer
@@ -133,4 +134,14 @@ export default {
     font-size 16px
     p
       margin-bottom 20px
+@media all and (max-width: 1000px) 
+  .faq-area
+    .container
+      width calc(100% - 32px)
+  .faq-item-header
+    p 
+      font-size: clamp(14px, calc(0.875rem + (20 - 14) * ((100vw - 340px) / (1000 - 340))), 20px)
+  .faq-item-content
+    .faq-item-content-text
+      font-size: clamp(13px, calc(0.8125rem + (16 - 13) * ((100vw - 340px) / (1000 - 340))), 16px)
 </style>

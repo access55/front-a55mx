@@ -1,5 +1,6 @@
 <template>
   <nav class="main-navigation" :class="{'active': statusMenu}">
+    <button class="close" @click.prevent="closeMenu">cerrar</button>
     <Logo css-class="top mobile" />
     <ul>
       <li class="mobile">
@@ -47,6 +48,21 @@ export default {
 
 <style lang="stylus">
 @import '~assets/css/functions.styl'
+.close
+  text-indent -9999px
+  position absolute
+  background-image url('~assets/img/close.svg')
+  width 24px
+  height 24px
+  background-repeat no-repeat
+  background-position center center
+  cursor pointer
+  border none
+  background-color transparent
+  border-radius 100%
+  top 10px
+  right 10px
+  display none
 .main-navigation
   width 500px
   align-items center
@@ -68,6 +84,8 @@ export default {
       color #fff
       text-decoration none
 @media all and (max-width: 750px)
+  .close
+    display block
   .main-navigation
     position fixed
     z-index 100

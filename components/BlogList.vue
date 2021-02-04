@@ -102,7 +102,4 @@ export default {
     .container
       max-width 1200px
       width calc(100% - 20px)
-    .blog-slider
-      .swiper-slide
-        width calc(100vw - 120px)   
 </style>

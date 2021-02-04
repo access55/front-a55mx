@@ -72,4 +72,27 @@ export default {
       color #606266
       font-size 16px
       line-height 150%
+@media all and (max-width: 1000px)
+  .topics
+    .container
+      width calc(100% - 32px)
+  .topics-info, .topics-list
+    width 100%
+  .topics-info
+    margin-bottom 50px
+  .topics-info-text 
+    p
+      font-size: clamp(14px, calc(0.875rem + (20 - 14) * ((100vw - 340px) / (1000 - 340))), 20px)
+@media all and (max-width: 600px)
+  .topics
+    .container
+      width calc(100% - 20px)
+      margin-bottom 20px
+  .topics-list
+    .topics-item-image
+      width 72px
+    .topics-item-info
+      width calc(100% - 100px)
+      p
+        font-size: clamp(13px, calc(0.8125rem + (16 - 13) * ((100vw - 340px) / (600 - 340))), 16px)
 </style>

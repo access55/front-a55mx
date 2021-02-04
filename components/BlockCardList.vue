@@ -31,6 +31,14 @@ export default {
     margin 0 auto
     display flex
     justify-content space-between
-    align-items flex-start
+    align-items stretch
     flex-wrap wrap
+@media all and (max-width: 1250px)
+  .block-card-area
+    .container
+      width calc(100% - 32px)
+@media all and (max-width: 600px)
+  .block-card-area
+    .container
+      width calc(100% - 20px)
 </style>
