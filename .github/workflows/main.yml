@@ -1,0 +1,25 @@
+name: Production Pipe
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: AWS Cli
+      run: pip install awscli --upgrade --user
+    - name: Install
+      run: npm i
+    - name: Generate
+      run: npm run generate
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      run: aws s3 cp dist s3://a55-prd-mxwp.s3.amazonaws.com --recursive
+
