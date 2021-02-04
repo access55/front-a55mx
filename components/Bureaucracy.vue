@@ -4,6 +4,10 @@
       <div class="box-bureaucracy-header-info">
         <h2>{{data.title}}</h2>
         <h3>{{data.sub_title}}</h3>
+        <div class="box-bureaucracy-content">
+          <p>{{data.text}}</p>
+          <p class="small">{{data.sub_text}}</p>
+        </div>
       </div>
       <div class="box-bureaucracy-image">
         <img 
@@ -13,10 +17,6 @@
           :height="data.image.height"
         >
       </div>
-    </div>
-    <div class="box-bureaucracy-content">
-      <p>{{data.text}}</p>
-      <p class="small">{{data.sub_text}}</p>
     </div>
   </div>
 </template>
@@ -47,24 +47,24 @@ export default {
   width calc(100% - 350px)
   padding-left 32px
   h2
-    font-size 50px
+    font-size 48px
     line-height 150%
-    color #00417F
+    color #0096ff
   h3
     color #0096FF
-    font-size 45px
+    font-size 36px
+    font-weight 600
     line-height 150%
 .box-bureaucracy-content
   margin-top 30px
-  text-align center
   p
-    font-size 36px
+    font-size 20px
     line-height 150%
     color #606266
     &.small
       font-weight bold
       margin-top 40px
-      font-size 30px
+      font-size 20px
 @media all and (max-width: 1250px)
   .box-bureaucracy
     width calc(100% - 64px)
@@ -79,14 +79,14 @@ export default {
     padding-left 0
   .box-bureaucracy-header-info 
     h2
-      font-size: clamp(25px, calc(1.75rem + (50 - 28) * ((100vw - 320px) / (1250 - 320))), 50px)
+      font-size: clamp(25px, calc(1.5625rem + (48 - 25) * ((100vw - 340px) / (1250 - 340))), 48px)
     h3
-      font-size: clamp(23px, calc(1.5rem + (45 - 24) * ((100vw - 320px) / (1250 - 320))), 45px)
+      font-size: clamp(24px, calc(1.5rem + (36 - 24) * ((100vw - 340px) / (1250 - 340))), 36px);
   .box-bureaucracy-content 
     p
-      font-size: clamp(18px, calc(1.25rem + (36 - 20) * ((100vw - 320px) / (1250 - 320))), 36px)
+      font-size: clamp(14px, calc(0.875rem + (20 - 14) * ((100vw - 340px) / (1250 - 340))), 20px);
       &.small
-        font-size: clamp(16px, calc(1rem + (30 - 16) * ((100vw - 320px) / (1250 - 320))), 30px)
+        font-size: clamp(14px, calc(0.875rem + (20 - 14) * ((100vw - 340px) / (1250 - 340))), 20px);
 @media all and (max-width: 600px)
   .box-bureaucracy
     display flex

@@ -73,7 +73,8 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
-  loading: '~/components/Loading.vue',
+  // loading: '~/components/Loading.vue',
+  loading: false,
   publicRuntimeConfig: {
     baseAPI: process.env.BASE_API
   }

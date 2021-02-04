@@ -1,5 +1,6 @@
 <template>
   <div class="main-page">
+    {{loading}}
     <Loading :loading="loading" />
     <Hero :data="credits.acf.hero" />
     <NumberBlock :data="credits.acf.fuel" :start="animationPaused" />

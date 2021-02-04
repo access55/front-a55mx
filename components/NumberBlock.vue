@@ -67,8 +67,8 @@ export default {
     text-align center
   h2
     margin-bottom 40px
-    color #00417F
-    font-size 50px
+    color #0096FF
+    font-size 36px
     line-height 150%
     font-weight 700
   h3
@@ -110,7 +110,7 @@ export default {
     .container
       width calc(100% - 64px)
     h2
-      font-size: clamp(22px, calc(1.375rem + (50 - 22) * ((100vw - 320px) / (1250 - 320))), 50px)
+      font-size: clamp(24px, calc(1.5rem + (36 - 24) * ((100vw - 340px) / (1250 - 340))), 36px)
     h3
       font-size: clamp(16px, calc(1rem + (24 - 16) * ((100vw - 320px) / (1250 - 320))), 24px)
       .big

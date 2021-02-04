@@ -29,7 +29,6 @@ export default {
       // numeros
       if(document.querySelector('.numbers')) {
         if(windowTop > document.querySelector('.numbers').offsetTop) {
-          console.log(this.animationPaused)
           this.animationPaused = true
         }
       }
