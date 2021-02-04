@@ -99,21 +99,12 @@ export default {
     timer: null,
     form: {
       email: '',
-      firstname: '',
-      interest: 'all'
-    },
-    error: {
-      email: false,
-      firstname: false
-    },
-    valid: {
-      email: false,
-      firstname: false,
+      firstname: ''
+      // interest: 'all'
     },
     result: {
       status: false
     },
-    submiting: false,
     loading: false
   }),
   methods: {
@@ -257,11 +248,6 @@ export default {
       color #ff3244
       placeholderColor(#ff3244, #ff3244)
       border-color #ff3244
-    &.valid
-      transitions(.2s)
-      placeholderColor(#A7C478, #A7C478)
-      &:focus
-        border-color #A7C478
 .newsletter-loading
   img
     centerPerfect()
