@@ -1,5 +1,5 @@
 <template>
-  <nav class="main-navigation" :class="{'active': statusMenu}">
+  <nav class="main-navigation" :class="{'active': statusMenu}" data-test="1">
     <button class="close" @click.prevent="closeMenu">cerrar</button>
     <Logo css-class="top mobile" />
     <ul>
