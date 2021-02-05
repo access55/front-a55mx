@@ -1,4 +1,7 @@
 export default {
+  router: {
+    base: '/MX/'
+  },
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
@@ -46,7 +49,7 @@ export default {
   css: [],
   styleResources: {
     stylus: [
-      './assets/css/normalize.styl', 
+      './assets/css/normalize.styl',
       './assets/css/functions.styl'
     ]
   },
