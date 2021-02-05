@@ -4,11 +4,11 @@
     <Loading :loading="loading" />
     <Hero :data="credits.acf.hero" />
     <NumberBlock :data="credits.acf.fuel" :start="animationPaused" />
-    <div class="block-button">
+    <!-- <div class="block-button">
       <div class="container">
         <LinkBox :url="home.acf.link_lines" :text="home.acf.button_lines" color="blue" />
       </div>
-    </div>
+    </div> -->
     <BlockCardList :cards="credits.acf.cards" />
     <Topics :data="credits.acf.request" />
     <div class="block-button">
