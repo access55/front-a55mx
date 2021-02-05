@@ -7,16 +7,20 @@
       <span class="number-after" v-html="data.numbers.after"></span></h3>
       <p>{{ data.text }}</p>
       <div class="companies-list">
-        <ul>
-          <li :key="index" v-for="(item, index) in data.companies" >
-            <img 
-            :src="item.image.url" 
-            :alt="item.image.description.length > 0 ? item.image.description : item.image.title" 
-            :width="item.image.width"
-            :height="item.image.height"
-          />
-          </li>
-        </ul>
+        <swiper
+        ref="companies" 
+        :options="swiperBlockImage" >
+          <swiper-slide v-for="(item, index) in data.companies" :key="index">
+            <div class="companies-item">
+              <img 
+                :src="item.image.url" 
+                :alt="item.image.description.length > 0 ? item.image.description : item.image.title" 
+                :width="item.image.width"
+                :height="item.image.height"
+              />
+            </div>
+          </swiper-slide>
+        </swiper>
       </div>
     </div>
   </div>
@@ -25,9 +29,38 @@
 import { CountUp } from 'countup.js'
 export default {
   name: 'NumberBlock',
-  data: () => ({
-    countUp: null
-  }),
+  data () {
+    return {
+      countUp: null,
+      swiperBlockImage: {
+        spaceBetween: 0,
+        centeredSlides: false,
+        slidesPerView: 3,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+            centeredSlides: false
+          },
+          600: {
+            slidesPerView: 2,
+            centeredSlides: false
+          },
+          1000: {
+            slidesPerView: 3,
+            centeredSlides: false
+          },
+          1250: {
+            slidesPerView: 4,
+            centeredSlides: false
+          }
+        }
+      }
+    }
+  },
   props: {
     data: {
       type: Object,
@@ -43,8 +76,8 @@ export default {
       if(value === true) {
         let countUp = new CountUp('numbers-number', parseInt(this.data.numbers.number, 10), {
           decimalPlaces: 0,
-          separator: ".",
-          decimal: ",",
+          separator: ",",
+          decimal: ".",
           prefix: "$",
           duration: 8,
           startVal: 0,
@@ -81,29 +114,23 @@ export default {
       font-size 40px
   p
     font-size 24px
+    line-height 150%
     color #606266
 .numbers-number
   font-size 40px
 .companies-list
-  max-width 1040px
+  max-width 1250px
   width calc(100% - 32px)
   margin 40px auto 0
-  ul
-    padding 0
-    margin 0
-    list-style-type none
-    width 100%
+  .companies-item
+    height 80px
     display flex
-    justify-content space-between
+    justify-content center
     align-items center
-    li
-      margin-left 30px
-      &:first-child
-        margin-left 0
-    img
-      max-width 100%
-      display block
-      height auto
+  img
+    max-width 100%
+    display block
+    height auto
   
 @media all and (max-width: 1250px)
   .numbers
@@ -116,7 +143,7 @@ export default {
       .big
         font-size: clamp(28px, calc(2rem + (40 - 32) * ((100vw - 320px) / (1250 - 320))), 40px)
     p
-      font-size: clamp(18px, calc(1.125rem + (24 - 18) * ((100vw - 320px) / (1250 - 320))), 24px)
+        font-size: clamp(14px, calc(0.875rem + (24 - 14) * ((100vw - 340px) / (1250 - 340))), 24px);
 @media all and (max-width: 1100px)
   .numbers
     .container
@@ -131,8 +158,12 @@ export default {
     .container
       width calc(100% - 20px)
   .numbers-number
-    margin 10px 0
-    display block
+    margin 5px 0
+    display flex
+    align-items center
+    justify-content center
+    height 46px
+    line-height 1
   .companies-list
     ul li
       margin-left 20px

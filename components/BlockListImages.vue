@@ -17,7 +17,7 @@
         </swiper>
         <div class="swiper-pagination" :class="sliderClass+'-pagination'"></div>
       </div>
-      <div class="block-list-images" :class="{'desktop': hasSlider}">
+      <div class="block-list-images" :class="{'desktop': hasSlider}" v-if="!hasSlider">
         <ul :class="listCssClass">
           <li v-for="(item, index) in data.list" :key="index">
             <img 
@@ -74,6 +74,10 @@ export default {
           el: '.'+this.sliderClass+'-pagination',
           clickable: true
         },
+        loop: true,
+        autoplay: {
+          delay: 5000,
+        },
         breakpoints: {
           0: {
             slidesPerView: 1,
@@ -85,6 +89,10 @@ export default {
           },
           1000: {
             slidesPerView: 3,
+            centeredSlides: false
+          },
+          1250: {
+            slidesPerView: 5,
             centeredSlides: false
           }
         }
