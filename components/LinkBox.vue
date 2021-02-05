@@ -69,5 +69,6 @@ export default{
 @media all and (max-width: 600px)
   .link-area
     a
+      padding 0 12px
       font-size 12px
 </style>

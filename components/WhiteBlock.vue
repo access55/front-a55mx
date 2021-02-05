@@ -49,4 +49,5 @@ export default {
     border-radius 16px
     padding 20px
     width calc(100% - 24px)
+    margin 60px auto 20px
 </style>

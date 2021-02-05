@@ -68,7 +68,7 @@
         </div>
         <div class="footer-extra-links mobile">
           <nuxt-link to="#">Aviso de privacidad</nuxt-link>
-          <nuxt-link to="#">Termos y condiciones</nuxt-link>
+          <nuxt-link to="#">Términos y Condiciones</nuxt-link>
         </div>
         <div class="footer-mobile-box">
           <img 
@@ -102,7 +102,7 @@ export default {
 @import '~assets/css/functions.styl'
 .main-footer
   box()
-  margin-top 92px
+  margin-top 40px
   padding 48px 0
   background #292F44
   .container

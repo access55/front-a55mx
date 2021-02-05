@@ -9,12 +9,12 @@ export default {
   head: {
     title: 'a55 - Mexico',
     htmlAttrs: {
-      lang: 'es'
+      lang: 'es-MX'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: 'Nuestro financiamiento empresarial se adapta a tus ingresos mensuales recurrentes. Acelera el crecimiento de tu empresa digital con a55 México.' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

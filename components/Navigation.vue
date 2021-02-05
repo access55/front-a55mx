@@ -137,5 +137,7 @@ export default {
         font-weight bold
         &.nuxt-link-exact-active
           color #33AAFF
+        &:after
+          display none
       
 </style>
