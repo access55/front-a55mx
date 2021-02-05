@@ -32,7 +32,6 @@
     </div>
   </div>
 </template>
-
 <script>
 const Hero             = () => import('~/components/Hero.vue')
 const LinkBox          = () => import('~/components/LinkBox.vue')
