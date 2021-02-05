@@ -4,7 +4,7 @@
     <p>{{data.text}}</p>
     <LinkBox 
       color="blue"
-      url="/"
+      :url="data.link_know"
       :text="data.button_know"
     />
   </div>

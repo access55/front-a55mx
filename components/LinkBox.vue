@@ -1,18 +1,13 @@
 <template>
   <div class="link-area">
-    <nuxt-link :to="url" v-if="!external" :class="color">{{ text }}</nuxt-link>
-    <a :href="url" v-if="external" :class="color" target="_blank" rel="noopener noreferrer">{{ text }}</a>
+    <a :href="url" data-link="external" v-if="isExternal(url)" :class="color" target="_blank" rel="noopener noreferrer">{{ text }}</a>
+    <nuxt-link :to="url" v-if="isExternal(url) === false" :class="color">{{ text }}</nuxt-link>
   </div>
 </template>
 <script>
 export default{
   name: 'LinkBox',
   props: {
-    external: {
-      type: Boolean,
-      required: false,
-      default: false
-    },
     text: {
       type: String,
       required: false,
@@ -27,6 +22,15 @@ export default{
       type: String,
       required: false,
       default: 'blue'
+    }
+  },
+  methods: {
+    checkDomain (url) {
+      if ( url.indexOf('//') === 0 ) { url = location.protocol + url; }
+      return url.toLowerCase().replace(/([a-z])?:\/\//,'$1').split('/')[0];
+    },
+    isExternal (url) {
+      return ( ( url.indexOf(':') > -1 || url.indexOf('//') > -1 ) && this.checkDomain(location.href) !== this.checkDomain(url) )
     }
   }
 }
@@ -50,6 +54,13 @@ export default{
     padding 0 32px
     text-decoration none
     transitions(.2s)
+    &.white
+      background #fff
+      color #0096FF
+      box-shadow: 0px 16px 24px rgba(5, 152, 255, 0.1), 0px 2px 6px rgba(5, 152, 255, 0.08), 0px 0px 1px rgba(5, 152, 255, 0.08)
+      &:hover
+        color #fff
+        background #0096FF
     &.blue
       color #fff
       background #0096FF

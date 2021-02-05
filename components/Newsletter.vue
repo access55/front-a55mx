@@ -16,7 +16,7 @@
           <p>{{resultText}}</p>
           <div class="newsletter-result-action">
             <button 
-              class="button blue" 
+              class="button-newsletter blue" 
               @click.prevent="result.status = false; loading = false">
               Cerrar
             </button>
@@ -58,7 +58,7 @@
                />
               </div>
               <div class="field field-submit">
-                <button class="blue button" type="submit">{{buttonText}}</button>
+                <button class="blue button-newsletter" type="submit">{{buttonText}}</button>
               </div>
             </div>
            </form>
@@ -301,6 +301,41 @@ export default {
   &:hover
     background-color lighten(#351921, 20%)
     transitions(.2s)
+.button-newsletter
+  display flex
+  outline none
+  cursor pointer
+  border none
+  justify-content center
+  align-items center
+  text-transform uppercase
+  text-decoration none
+  font-weight 700
+  height 40px
+  font-size 14px
+  letter-spacing 1px
+  border-radius 66px
+  padding 0 32px
+  text-decoration none
+  transitions(.2s)
+  &.white
+    background #fff
+    color #0096FF
+    box-shadow: 0px 16px 24px rgba(5, 152, 255, 0.1), 0px 2px 6px rgba(5, 152, 255, 0.08), 0px 0px 1px rgba(5, 152, 255, 0.08)
+    &:hover
+      color #fff
+      background #0096FF
+  &.blue
+    color #fff
+    background #0096FF
+    box-shadow: 0px 16px 24px rgba(5, 152, 255, 0.1), 0px 2px 6px rgba(5, 152, 255, 0.08), 0px 0px 1px rgba(5, 152, 255, 0.08)
+    &:hover
+      background #fff
+      color #0096FF
+      
+  &:hover
+    transitions(.2s)
+  
 @media all and (max-width: 1000px)
   .field
     input
@@ -309,4 +344,7 @@ export default {
   .newsletter-area 
     .container
       width calc(100% - 20px)
+  .button-newsletter
+    padding 0 12px
+    font-size 12px
 </style>

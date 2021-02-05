@@ -6,21 +6,21 @@
     <NumberBlock :data="credits.acf.fuel" :start="animationPaused" />
     <div class="block-button">
       <div class="container">
-        <ButtonBox :text="home.acf.button_lines" color="blue" />
+        <LinkBox :url="home.acf.link_lines" :text="home.acf.button_lines" color="blue" />
       </div>
     </div>
     <BlockCardList :cards="credits.acf.cards" />
     <Topics :data="credits.acf.request" />
     <div class="block-button">
       <div class="container">
-        <LinkBox url="/blog" :text="credits.acf.request.button_request" color="blue" />
+        <LinkBox :url="credits.acf.request.link_request" :text="credits.acf.request.button_request" color="blue" />
       </div>
     </div>
     <TestimonialsList :data="home.acf.testimonials" />
     <Faq :data="credits.acf.faq" />
 
-    <BlogList :posts="posts" :title="blog.title" />
-    <div class="block-button">
+    <BlogList :posts="posts" :title="blog.title"  v-if="posts.length > 0"/>
+    <div class="block-button" v-if="posts.length > 0">
       <div class="container">
         <LinkBox url="/blog" :text="blog.button" color="blue" />
       </div>

@@ -6,7 +6,7 @@
     <Bureaucracy :data="home.acf.bureaucracy"/>
     <div class="block-button desktop">
       <div class="container">
-        <ButtonBox :text="home.acf.button_lines" color="blue" />
+        <LinkBox :text="home.acf.button_lines" color="blue" :url="home.acf.link_lines" />
       </div>
     </div>
     <TestimonialsList :data="home.acf.testimonials" />
@@ -20,12 +20,12 @@
        />
     <div class="block-button">
       <div class="container">
-        <ButtonBox :text="home.acf.allies.button_ally" color="white" />
+        <LinkBox :text="home.acf.allies.button_ally" color="white" :url="home.acf.allies.link_ally" />
       </div>
     </div>
     <WhiteBlock :data="home.acf.invest" />
-    <BlogList :posts="posts" :title="blog.title" />
-    <div class="block-button">
+    <BlogList :posts="posts" :title="blog.title" v-if="posts.length > 0" />
+    <div class="block-button" v-if="posts.length > 0">
       <div class="container">
         <LinkBox url="/blog" :text="blog.button" color="blue" />
       </div>

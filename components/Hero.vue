@@ -3,8 +3,9 @@
     <div class="hero-content">
       <div class="hero-content-center">
         <div class="hero-content-title" v-html="data.title"></div>
-        <ButtonBox
+        <LinkBox
           color="blue"
+          :url="data.link"
           :text="data.button_begin"
         />
       </div>
@@ -18,11 +19,11 @@
 </template>
 <script>
 const ImageBox  = () => import('~/components/ImageBox.vue')
-const ButtonBox = () => import('~/components/ButtonBox.vue')
+const LinkBox = () => import('~/components/LinkBox.vue')
 export default {
   name: 'Hero',
   components: {
-    ImageBox, ButtonBox
+    ImageBox, LinkBox
   },
   props: {
     data: {
@@ -67,7 +68,7 @@ export default {
   color #fff
   position relative
   z-index 10
-  button
+  .link-area
     margin-top 55px
   h1
     margin 0

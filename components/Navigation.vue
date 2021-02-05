@@ -3,19 +3,19 @@
     <button class="close" @click.prevent="closeMenu">cerrar</button>
     <Logo css-class="top mobile" />
     <ul>
-      <li class="mobile">
+      <li>
         <nuxt-link to="/" @click.native="closeMenu">Home</nuxt-link>
       </li>
       <li>
         <nuxt-link to="/creditos-empresariales" @click.native="closeMenu">Créditos Empresariales</nuxt-link>
       </li>
-      <li>
+      <!-- <li>
         <nuxt-link to="/blog" @click.native="closeMenu">Blog</nuxt-link>
-      </li>
+      </li> -->
     </ul>
     <LinkBox
       :external="true"
-      url="https://plataforma.a55.tech/entrar"
+      :url="options.login_link"
       :text="options.login_text"
       color="blue mobile-navigation" />
   </nav>

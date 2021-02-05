@@ -111,7 +111,7 @@ export const actions = {
         return { page }
       }).then((response) => {
         commit('updateHome', response.page.data.home)
-        commit('updatePosts', response.page.data.posts)
+        commit('updatePosts', response.page.data.posts || [])
         commit('updateOptions', response.page.data.options)
         commit('updateBlog', response.page.data.blog)
         commit('updateNewsletter', response.page.data.newsletter)
