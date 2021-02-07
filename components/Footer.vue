@@ -2,21 +2,21 @@
   <footer class="main-footer">
     <div class="container">
       <div class="footer-address">
-        <img 
-          src="~assets/img/logo-footer.svg" 
-          alt="a55" 
-          width="96" 
+        <img
+          src="~assets/img/logo-footer.svg"
+          alt="a55"
+          width="96"
           height="41"
           class="desktop footer-image">
-        <SocialNetworks 
+        <SocialNetworks
           :twitter="options.twitter"
           :linkedin="options.linkedin"
           :blogger="options.blogger"
         />
         <p v-html="options.address" class="desktop footer-address-text"></p>
         <div class="footer-extra-links desktop">
-          <nuxt-link to="#">Aviso de privacidad</nuxt-link>
-          <nuxt-link to="#">Termos y condiciones</nuxt-link>
+          <a href="https://a55.tech/wp-content/uploads/2020/12/Politica_de_protecao_de_dados_a55.pdf" target="_blank" rel="noopener noreferrer">Aviso de privacidad</a>
+          <a href="https://a55.tech/wp-content/uploads/2020/12/Politica_de_protecao_de_dados_a55.pdf" target="_blank" rel="noopener noreferrer">Termos y condiciones</a>
         </div>
       </div>
       <div class="footer-sitemap">
@@ -25,7 +25,7 @@
             <h6>a55</h6>
             <ul>
               <li>
-                <nuxt-link to="/blog">Blog</nuxt-link>
+                <a ref="https://legacy.a55.tech/es/blog-a55/" target="_blank" rel="noopener noreferrer">Blog</a>
               </li>
             </ul>
           </div>
@@ -41,7 +41,7 @@
             <h6>Portal</h6>
             <ul>
               <li>
-                <a href="#" target="_blank" rel="noopener noreferrer">Plataforma</a>
+                <a href="https://apply-mx.a55.tech/ingresar" target="_blank" rel="noopener noreferrer">Plataforma</a>
               </li>
             </ul>
           </div>
@@ -49,10 +49,10 @@
             <h6>America latina</h6>
             <ul>
               <li>
-                <a href="#" target="_blank" rel="noopener noreferrer">México</a>
+                <a href="https://a55.tech/MX" target="_blank" rel="noopener noreferrer">México</a>
               </li>
               <li>
-                <a href="#" target="_blank" rel="noopener noreferrer">Brasil</a>
+                <a href="https://a55.tech" target="_blank" rel="noopener noreferrer">Brasil</a>
               </li>
             </ul>
           </div>
@@ -67,14 +67,14 @@
           </div>
         </div>
         <div class="footer-extra-links mobile">
-          <nuxt-link to="#">Aviso de privacidad</nuxt-link>
-          <nuxt-link to="#">Términos y Condiciones</nuxt-link>
+          <a href="https://a55.tech/wp-content/uploads/2020/12/Politica_de_protecao_de_dados_a55.pdf" target="_blank" rel="noopener noreferrer">Aviso de privacidad</a>
+          <a href="https://a55.tech/wp-content/uploads/2020/12/Politica_de_protecao_de_dados_a55.pdf" target="_blank" rel="noopener noreferrer">Termos y condiciones</a>
         </div>
         <div class="footer-mobile-box">
-          <img 
-            src="~assets/img/logo-footer.svg" 
-            alt="a55" 
-            width="96" 
+          <img
+            src="~assets/img/logo-footer.svg"
+            alt="a55"
+            width="96"
             height="41"
             class="mobile footer-image">
           <p v-html="options.address" class="mobile footer-address-text"></p>
@@ -199,7 +199,7 @@ export default {
   font-weight 300
   line-height 200%
 @media all and (max-width: 1200px)
-  .main-footer 
+  .main-footer
     .container
       width calc(100% - 32px)
   .footer-sitemap
@@ -250,7 +250,7 @@ export default {
 @media all and (max-width: 450px)
   .footer-sitemaps-cats
     width 100%
-  .footer-extra-links 
+  .footer-extra-links
     display block
     a
       margin 0 0 20px 20px
