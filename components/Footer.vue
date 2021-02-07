@@ -25,7 +25,7 @@
             <h6>a55</h6>
             <ul>
               <li>
-                <a ref="https://legacy.a55.tech/es/blog-a55/" target="_blank" rel="noopener noreferrer">Blog</a>
+                <a href="https://legacy.a55.tech/es/blog-a55/" target="_blank" rel="noopener noreferrer">Blog</a>
               </li>
             </ul>
           </div>
