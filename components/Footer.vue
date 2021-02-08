@@ -67,8 +67,8 @@
           </div>
         </div>
         <div class="footer-extra-links mobile">
-          <a href="https://a55.tech/wp-content/uploads/2020/12/Politica_de_protecao_de_dados_a55.pdf" target="_blank" rel="noopener noreferrer">Aviso de privacidad</a>
-          <a href="https://a55.tech/wp-content/uploads/2020/12/Politica_de_protecao_de_dados_a55.pdf" target="_blank" rel="noopener noreferrer">Termos y condiciones</a>
+          <a href="https://a55-mx-cdn.s3.amazonaws.com/Aviso+Privacidad.pdf" target="_blank" rel="noopener noreferrer">Aviso de privacidad</a>
+          <a href="https://a55-mx-cdn.s3.amazonaws.com/T%C3%A9rminos+y+Condiciones.pdf" target="_blank" rel="noopener noreferrer">Termos y condiciones</a>
         </div>
         <div class="footer-mobile-box">
           <img
