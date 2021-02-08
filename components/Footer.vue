@@ -16,7 +16,7 @@
         <p v-html="options.address" class="desktop footer-address-text"></p>
         <div class="footer-extra-links desktop">
           <a href="https://a55-mx-cdn.s3.amazonaws.com/Aviso+Privacidad.pdf" target="_blank" rel="noopener noreferrer">Aviso de privacidad</a>
-          <a href="https://a55-mx-cdn.s3.amazonaws.com/T%C3%A9rminos+y+Condiciones.pdf" target="_blank" rel="noopener noreferrer">Termos y condiciones</a>
+          <a href="https://a55-mx-cdn.s3.amazonaws.com/T%C3%A9rminos+y+Condiciones.pdf" target="_blank" rel="noopener noreferrer">Términos y condiciones</a>
         </div>
       </div>
       <div class="footer-sitemap">
@@ -68,7 +68,7 @@
         </div>
         <div class="footer-extra-links mobile">
           <a href="https://a55-mx-cdn.s3.amazonaws.com/Aviso+Privacidad.pdf" target="_blank" rel="noopener noreferrer">Aviso de privacidad</a>
-          <a href="https://a55-mx-cdn.s3.amazonaws.com/T%C3%A9rminos+y+Condiciones.pdf" target="_blank" rel="noopener noreferrer">Termos y condiciones</a>
+          <a href="https://a55-mx-cdn.s3.amazonaws.com/T%C3%A9rminos+y+Condiciones.pdf" target="_blank" rel="noopener noreferrer">Términos y condiciones</a>
         </div>
         <div class="footer-mobile-box">
           <img
