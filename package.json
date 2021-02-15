@@ -9,6 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/gtm": "^2.4.0",
     "core-js": "^3.8.3",
     "countup.js": "^2.0.7",
     "nuxt": "^2.14.12",
@@ -19,6 +20,5 @@
     "vue-awesome-swiper": "^4.1.1",
     "vue-the-mask": "^0.11.1",
     "vuelidate": "^0.7.6"
-  },
-  "devDependencies": {}
+  }
 }
