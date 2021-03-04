@@ -1,7 +1,7 @@
 export default {
-  router: {
-    base: '/MX/'
-  },
+  // router: {
+  //   base: '/MX/'
+  // },
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
